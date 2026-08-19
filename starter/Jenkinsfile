@@ -11,22 +11,22 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn -B clean package'
+                sh 'mvn -B -f starter/pom.xml clean package'
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn -B test'
+                sh 'mvn -B -f starter/pom.xml test'
             }
             post {
                 always {
-                    junit 'target/test-reports/*.xml'
+                    junit 'starter/target/test-reports/*.xml'
                 }
             }
         }
         stage('Archive') {
             steps {
-                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+                archiveArtifacts artifacts: 'starter/target/*.jar', fingerprint: true
             }
         }
     }
