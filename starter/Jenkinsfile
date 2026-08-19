@@ -1,9 +1,9 @@
 pipeline {
     agent any
+    tools {
+        maven 'Maven'   // must match the name configured in Manage Jenkins > Tools
+    }
     stages {
-        tools {
-            maven 'Maven3'   // must match the name configured in Manage Jenkins > Tools
-        }
         stage('Checkout') {
             steps {
                 checkout scm
