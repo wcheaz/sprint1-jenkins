@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    tools {
-        maven 'Maven'   // must match the name configured in Manage Jenkins > Tools
-    }
+    // tools {
+    //     maven 'Maven'   // must match the name configured in Manage Jenkins > Tools
+    // }
     stages {
         stage('Checkout') {
             steps {
@@ -23,7 +23,7 @@ pipeline {
                     junit 'starter/target/surefire-reports/*.xml'
                 }
             }
-        }
+        }n
         stage('Archive') {
             steps {
                 archiveArtifacts artifacts: 'starter/target/*.jar', fingerprint: true
