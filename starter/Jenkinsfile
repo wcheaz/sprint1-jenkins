@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Archive') {
             steps {
-                archiveArtifacts artifacts: 'starter/target/*.jar', 'starter/target/site/jacoco', fingerprint: true
+                archiveArtifacts artifacts: 'starter/target/*.jar, starter/target/site/jacoco/**', fingerprint: true
 	    }
         }
     }
